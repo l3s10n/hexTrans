@@ -1,24 +1,29 @@
 #!/usr/bin/python3
 import sys
 
-if len(sys.argv) != 3:
-    print('''Usage: hexTrans <hexString> <Separator>
+def hexTrans(hex, sig):
+    if len(hex)%2 != 0:
+        print("Please enter an even number!")
+        exit()
 
-Example: 
-        input: hexTrans 'aabbcc' '%'
-        output: %aa%bb%cc
-    ''')
-    exit()
+    slices = [hex[i:i+2] for i in range(0, len(hex), 2)]
+    ans = sig + sig.join(slices)
+    return ans
 
-hex = sys.argv[1]
-sig = sys.argv[2]
+if __name__ == "__main__":
+    
+    if len(sys.argv) != 3:
+        print('''Usage: hexTrans <hexString> <Separator>
 
-if len(hex)%2 != 0:
-    print("Please enter an even number!")
-    exit()
+    Example: 
+            input: hexTrans 'aabbcc' '%'
+            output: %aa%bb%cc
+        ''')
+        exit()
 
-slices = [hex[i:i+2] for i in range(0, len(hex), 2)]
+    hex = sys.argv[1]
+    sig = sys.argv[2]
 
-ans = sig + sig.join(slices)
+    ans = hexTrans(hex, sig)
 
-print(ans)
+    print(ans)
