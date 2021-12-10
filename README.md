@@ -28,3 +28,12 @@ Example:
         output: %aa%bb%cc
 ```
 
+或者也可以将hexTrans.py作为模块导入使用：
+
+```python
+from hexTrans import hexTrans
+
+print(hexTrans('aabbcc','%'))
+
+# output: %aa%bb%cc
+```
