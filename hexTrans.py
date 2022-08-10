@@ -13,11 +13,11 @@ def hexTrans(hex, sig):
 if __name__ == "__main__":
     
     if len(sys.argv) != 3:
-        print('''Usage: hexTrans <hexString> <Separator>
+        print('''Usage: python3 hexTrans.py <hexString> <Separator>
 
     Example: 
-            input: hexTrans 'aabbcc' '%'
-            output: %aa%bb%cc
+            input: python3 hexTrans.py "aabbcc" "\\x"
+            output: \\xaa\\xbb\\xcc
         ''')
         exit()
 
